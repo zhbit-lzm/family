@@ -28,5 +28,8 @@
         <property name="userPhone" type="java.lang.String">
             <column name="user_phone" length="50" />
         </property>
+        <property name="userBirthday" type="java.util.Date">
+            <column name="user_birthday" length="10" />
+        </property>
     </class>
 </hibernate-mapping>

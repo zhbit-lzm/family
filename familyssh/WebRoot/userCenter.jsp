@@ -23,7 +23,10 @@
    <br/>
  	<div class="col-md-4"><form action="resetPassword.jsp"><input type="submit" value="修改密码" class="mybutton"></form></div>
     <div class="col-md-4"><form><input type="submit" value="修改头像" class="mybutton"></form></div>
-    <div class="col-md-4"><form><input type="submit" value="修改个人 信息" class="mybutton"></form></div>
+    <div class="col-md-4"><form action="getUserPI"><input type="submit" value="个人 信息" class="mybutton"></form></div>
+   </div>
+   <div class="row">
+   <s:fielderror></s:fielderror>
    </div>
    </div>
     

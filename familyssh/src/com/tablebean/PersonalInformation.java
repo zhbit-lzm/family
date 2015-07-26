@@ -1,5 +1,7 @@
 package com.tablebean;
 
+import java.util.Date;
+
 /**
  * PersonalInformation entity. @author MyEclipse Persistence Tools
  */
@@ -15,6 +17,7 @@ public class PersonalInformation implements java.io.Serializable {
 	private String userLogo;
 	private String userAddress;
 	private String userPhone;
+	private Date userBirthday;
 
 	// Constructors
 
@@ -25,13 +28,14 @@ public class PersonalInformation implements java.io.Serializable {
 	/** full constructor */
 	public PersonalInformation(UserInfo userInfo, String userName,
 			String userSex, String userLogo, String userAddress,
-			String userPhone) {
+			String userPhone, Date userBirthday) {
 		this.userInfo = userInfo;
 		this.userName = userName;
 		this.userSex = userSex;
 		this.userLogo = userLogo;
 		this.userAddress = userAddress;
 		this.userPhone = userPhone;
+		this.userBirthday = userBirthday;
 	}
 
 	// Property accessors
@@ -90,6 +94,14 @@ public class PersonalInformation implements java.io.Serializable {
 
 	public void setUserPhone(String userPhone) {
 		this.userPhone = userPhone;
+	}
+
+	public Date getUserBirthday() {
+		return this.userBirthday;
+	}
+
+	public void setUserBirthday(Date userBirthday) {
+		this.userBirthday = userBirthday;
 	}
 
 }
