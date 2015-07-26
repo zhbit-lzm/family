@@ -1,0 +1,12 @@
+@CHARSET "UTF-8";
+.mybutton
+{
+	width: 200px;
+	height: 200px;
+	
+	background-color: #3ac2da;
+}
+.mybutton:hover{
+
+	background-color: #01fefe;
+}

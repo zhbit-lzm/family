@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+<package name="default" namespace="/" extends="struts-default">
+
+<!-- 用户登录处理 -->
+<action name="login" class="UserAction" method="login">
+<result name="success">index.jsp</result>
+<result name="user" type="redirect">index.jsp</result>
+<result name="admin" type="redirect">admin.jsp</result>
+<result name="input">login.jsp</result>
+</action>
+
+<action name="logout" class="UserAction" method="logout">
+<result name="success">index.jsp</result>
+</action>
+
+
+<action name="register" class="UserAction" method="register">
+<result name="success">/login.jsp</result>
+<result name="input">/register.jsp</result>
+</action>
+
+<action name="resetPassword" class="UserAction" method="resetPassword">
+<result name="success">/userCenter.jsp</result>
+<result name="input">/resetPassword.jsp</result>
+</action>
+
+<!-- 获取用户个人详细信息 -->
+<action name="getUserPI" class="PersonalInformationAction" method="getUserPI">
+<result name="success">/userPI.jsp</result>
+<result name="input">/login.jsp</result>
+</action>
+
+</package>
+
+</struts>    
