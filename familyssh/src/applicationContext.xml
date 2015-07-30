@@ -35,7 +35,11 @@
 				<value>com/tablebean/PersonalInformation.hbm.xml</value>
 				<value>com/tablebean/UserRelationship.hbm.xml</value>
 				<value>com/tablebean/UserInfo.hbm.xml</value>
-				<value>com/tablebean/UserType.hbm.xml</value></list>
+				<value>com/tablebean/UserType.hbm.xml</value>
+				<value>com/tablebean/PasswordRecovery.hbm.xml</value>
+				<value>com/tablebean/ActivityInfo.hbm.xml</value>
+				<value>com/tablebean/ActivityPicture.hbm.xml</value>
+				<value>com/tablebean/ActivityParticipant.hbm.xml</value></list>
 		</property></bean>
 	<bean id="transactionManager"
 		class="org.springframework.orm.hibernate4.HibernateTransactionManager">

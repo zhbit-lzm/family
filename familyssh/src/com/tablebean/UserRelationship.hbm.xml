@@ -10,6 +10,9 @@
             <column name="oid" />
             <generator class="native" />
         </id>
+        <many-to-one name="userInfoByUserSpouse" class="com.tablebean.UserInfo" fetch="select">
+            <column name="user_spouse" />
+        </many-to-one>
         <many-to-one name="userInfoByUserMother" class="com.tablebean.UserInfo" fetch="select">
             <column name="user_mother" />
         </many-to-one>

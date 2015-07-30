@@ -10,7 +10,7 @@
             <column name="oid" />
             <generator class="native" />
         </id>
-        <many-to-one name="userType" class="com.tablebean.UserType" fetch="select" lazy="false">
+        <many-to-one name="userType" class="com.tablebean.UserType" fetch="select">
             <column name="user_type" not-null="true" />
         </many-to-one>
         <property name="userAccount" type="java.lang.String">
@@ -22,9 +22,24 @@
         <property name="userEmail" type="java.lang.String">
             <column name="user_email" length="50" not-null="true" unique="true" />
         </property>
-        <set name="userRelationshipsForUserOid" inverse="true">
+        <property name="usable" type="java.lang.Boolean">
+            <column name="usable" />
+        </property>
+        <set name="passwordRecoveries" inverse="true">
             <key>
-                <column name="user_oid" />
+                <column name="user_oid" unique="true" />
+            </key>
+            <one-to-many class="com.tablebean.PasswordRecovery" />
+        </set>
+        <set name="userRelationshipsForUserSpouse" inverse="true">
+            <key>
+                <column name="user_spouse" />
+            </key>
+            <one-to-many class="com.tablebean.UserRelationship" />
+        </set>
+        <set name="userRelationshipsForUserMother" inverse="true">
+            <key>
+                <column name="user_mother" />
             </key>
             <one-to-many class="com.tablebean.UserRelationship" />
         </set>
@@ -34,15 +49,27 @@
             </key>
             <one-to-many class="com.tablebean.PersonalInformation" />
         </set>
-        <set name="userRelationshipsForUserMother" inverse="true">
+        <set name="activityParticipants" inverse="true">
             <key>
-                <column name="user_mother" />
+                <column name="join_user" />
             </key>
-            <one-to-many class="com.tablebean.UserRelationship" />
+            <one-to-many class="com.tablebean.ActivityParticipant" />
+        </set>
+        <set name="activityInfos" inverse="true">
+            <key>
+                <column name="leader" unique="true" />
+            </key>
+            <one-to-many class="com.tablebean.ActivityInfo" />
         </set>
         <set name="userRelationshipsForUserFather" inverse="true">
             <key>
                 <column name="user_father" />
+            </key>
+            <one-to-many class="com.tablebean.UserRelationship" />
+        </set>
+        <set name="userRelationshipsForUserOid" inverse="true">
+            <key>
+                <column name="user_oid" />
             </key>
             <one-to-many class="com.tablebean.UserRelationship" />
         </set>

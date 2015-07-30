@@ -16,10 +16,15 @@ public class UserInfo implements java.io.Serializable {
 	private String userAccount;
 	private String userPassword;
 	private String userEmail;
-	private Set userRelationshipsForUserOid = new HashSet(0);
-	private Set personalInformations = new HashSet(0);
+	private Boolean usable;
+	private Set passwordRecoveries = new HashSet(0);
+	private Set userRelationshipsForUserSpouse = new HashSet(0);
 	private Set userRelationshipsForUserMother = new HashSet(0);
+	private Set personalInformations = new HashSet(0);
+	private Set activityParticipants = new HashSet(0);
+	private Set activityInfos = new HashSet(0);
 	private Set userRelationshipsForUserFather = new HashSet(0);
+	private Set userRelationshipsForUserOid = new HashSet(0);
 
 	// Constructors
 
@@ -38,17 +43,24 @@ public class UserInfo implements java.io.Serializable {
 
 	/** full constructor */
 	public UserInfo(UserType userType, String userAccount, String userPassword,
-			String userEmail, Set userRelationshipsForUserOid,
-			Set personalInformations, Set userRelationshipsForUserMother,
-			Set userRelationshipsForUserFather) {
+			String userEmail, Boolean usable, Set passwordRecoveries,
+			Set userRelationshipsForUserSpouse,
+			Set userRelationshipsForUserMother, Set personalInformations,
+			Set activityParticipants, Set activityInfos,
+			Set userRelationshipsForUserFather, Set userRelationshipsForUserOid) {
 		this.userType = userType;
 		this.userAccount = userAccount;
 		this.userPassword = userPassword;
 		this.userEmail = userEmail;
-		this.userRelationshipsForUserOid = userRelationshipsForUserOid;
-		this.personalInformations = personalInformations;
+		this.usable = usable;
+		this.passwordRecoveries = passwordRecoveries;
+		this.userRelationshipsForUserSpouse = userRelationshipsForUserSpouse;
 		this.userRelationshipsForUserMother = userRelationshipsForUserMother;
+		this.personalInformations = personalInformations;
+		this.activityParticipants = activityParticipants;
+		this.activityInfos = activityInfos;
 		this.userRelationshipsForUserFather = userRelationshipsForUserFather;
+		this.userRelationshipsForUserOid = userRelationshipsForUserOid;
 	}
 
 	// Property accessors
@@ -93,20 +105,29 @@ public class UserInfo implements java.io.Serializable {
 		this.userEmail = userEmail;
 	}
 
-	public Set getUserRelationshipsForUserOid() {
-		return this.userRelationshipsForUserOid;
+	public Boolean getUsable() {
+		return this.usable;
 	}
 
-	public void setUserRelationshipsForUserOid(Set userRelationshipsForUserOid) {
-		this.userRelationshipsForUserOid = userRelationshipsForUserOid;
+	public void setUsable(Boolean usable) {
+		this.usable = usable;
 	}
 
-	public Set getPersonalInformations() {
-		return this.personalInformations;
+	public Set getPasswordRecoveries() {
+		return this.passwordRecoveries;
 	}
 
-	public void setPersonalInformations(Set personalInformations) {
-		this.personalInformations = personalInformations;
+	public void setPasswordRecoveries(Set passwordRecoveries) {
+		this.passwordRecoveries = passwordRecoveries;
+	}
+
+	public Set getUserRelationshipsForUserSpouse() {
+		return this.userRelationshipsForUserSpouse;
+	}
+
+	public void setUserRelationshipsForUserSpouse(
+			Set userRelationshipsForUserSpouse) {
+		this.userRelationshipsForUserSpouse = userRelationshipsForUserSpouse;
 	}
 
 	public Set getUserRelationshipsForUserMother() {
@@ -118,6 +139,30 @@ public class UserInfo implements java.io.Serializable {
 		this.userRelationshipsForUserMother = userRelationshipsForUserMother;
 	}
 
+	public Set getPersonalInformations() {
+		return this.personalInformations;
+	}
+
+	public void setPersonalInformations(Set personalInformations) {
+		this.personalInformations = personalInformations;
+	}
+
+	public Set getActivityParticipants() {
+		return this.activityParticipants;
+	}
+
+	public void setActivityParticipants(Set activityParticipants) {
+		this.activityParticipants = activityParticipants;
+	}
+
+	public Set getActivityInfos() {
+		return this.activityInfos;
+	}
+
+	public void setActivityInfos(Set activityInfos) {
+		this.activityInfos = activityInfos;
+	}
+
 	public Set getUserRelationshipsForUserFather() {
 		return this.userRelationshipsForUserFather;
 	}
@@ -125,6 +170,14 @@ public class UserInfo implements java.io.Serializable {
 	public void setUserRelationshipsForUserFather(
 			Set userRelationshipsForUserFather) {
 		this.userRelationshipsForUserFather = userRelationshipsForUserFather;
+	}
+
+	public Set getUserRelationshipsForUserOid() {
+		return this.userRelationshipsForUserOid;
+	}
+
+	public void setUserRelationshipsForUserOid(Set userRelationshipsForUserOid) {
+		this.userRelationshipsForUserOid = userRelationshipsForUserOid;
 	}
 
 }

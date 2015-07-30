@@ -9,6 +9,7 @@ public class UserRelationship implements java.io.Serializable {
 	// Fields
 
 	private Integer oid;
+	private UserInfo userInfoByUserSpouse;
 	private UserInfo userInfoByUserMother;
 	private UserInfo userInfoByUserFather;
 	private UserInfo userInfoByUserOid;
@@ -20,8 +21,10 @@ public class UserRelationship implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public UserRelationship(UserInfo userInfoByUserMother,
-			UserInfo userInfoByUserFather, UserInfo userInfoByUserOid) {
+	public UserRelationship(UserInfo userInfoByUserSpouse,
+			UserInfo userInfoByUserMother, UserInfo userInfoByUserFather,
+			UserInfo userInfoByUserOid) {
+		this.userInfoByUserSpouse = userInfoByUserSpouse;
 		this.userInfoByUserMother = userInfoByUserMother;
 		this.userInfoByUserFather = userInfoByUserFather;
 		this.userInfoByUserOid = userInfoByUserOid;
@@ -35,6 +38,14 @@ public class UserRelationship implements java.io.Serializable {
 
 	public void setOid(Integer oid) {
 		this.oid = oid;
+	}
+
+	public UserInfo getUserInfoByUserSpouse() {
+		return this.userInfoByUserSpouse;
+	}
+
+	public void setUserInfoByUserSpouse(UserInfo userInfoByUserSpouse) {
+		this.userInfoByUserSpouse = userInfoByUserSpouse;
 	}
 
 	public UserInfo getUserInfoByUserMother() {
