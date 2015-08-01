@@ -10,7 +10,11 @@
   </head>
   
   <body>
+  <s:include value="userTop.jsp"></s:include>
   <div style="width: 400px;margin: 0 auto;">
+  <br/>
+  <br/>
+  <br/>
   <s:fielderror></s:fielderror>
     <a class="btn btn-primary" href="userCenter.jsp">返回个人中心</a>
     <form action="resetPassword" method="post">

@@ -79,6 +79,14 @@ public class UserDaoImp implements UserDao {
 		
 		return true;
 	}
+
+
+	public PersonalInformation getUserPI(int UserOid) {
+		
+		//根据用户编号返回用户个人信息
+		return (PersonalInformation) sessionFactory.getCurrentSession().createQuery("from PersonalInformation where userInfo.oid=?")
+						.setInteger(0, UserOid).uniqueResult();
+	}
 	
 
 }

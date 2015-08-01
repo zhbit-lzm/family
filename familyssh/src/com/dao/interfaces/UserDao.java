@@ -11,5 +11,5 @@ public interface UserDao {
 	public boolean resetPassword(UserInfo user);//重置密码
 	public boolean addPersonalInformation(PersonalInformation PI);//添加一条用户信息记录
 	public boolean addUserRelationship(UserRelationship UR);//添加用户关系记录
-
+	public PersonalInformation getUserPI(int UserOid);//通过用户编号获取用户个人信息
 }

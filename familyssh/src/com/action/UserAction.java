@@ -48,12 +48,24 @@ public class UserAction extends ActionSupport {
 		
 		if(userService.checkUser(user))
 		{
+			
 			UserInfo nowuser=userService.getUser(user);
+			if(nowuser.getUsable()==false)
+			{
+				addFieldError("error", "该帐号没有经过审批,请联系管理员");
+				return "input";
+			}
+			
 			nowuser.setUserPassword("");
 			
 			HttpSession session= ServletActionContext.getRequest().getSession();
-			
 			session.setAttribute("user",nowuser);	
+			
+			//获取用户个人信息加载到session
+			PersonalInformation PI=userService.getUserPI(nowuser.getOid());
+			session.setAttribute("userPI", PI);
+			
+			
 			int type=nowuser.getUserType().getTypeValue();
 			if(type==1)
 			{
@@ -78,6 +90,7 @@ public class UserAction extends ActionSupport {
 	{
 		HttpSession session= ServletActionContext.getRequest().getSession();
 		session.removeAttribute("user");
+		session.removeAttribute("userPI");
 		return "success";
 	}
 	//用户注册
@@ -87,6 +100,7 @@ public class UserAction extends ActionSupport {
 		UserType userType=new UserType();
 		userType.setOid(1);
 		user.setUserType(userType);
+		user.setUsable(false);//没有审批
 		
 		//密码加密
 		user.setUserPassword(md5.getMD5(user.getUserPassword().getBytes()));

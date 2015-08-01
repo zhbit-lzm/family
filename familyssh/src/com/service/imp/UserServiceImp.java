@@ -57,6 +57,12 @@ public class UserServiceImp implements UserService {
 		
 		return userDao.addUserRelationship(UR);
 	}
+
+	@Override
+	public PersonalInformation getUserPI(int UserOid) {
+		
+		return userDao.getUserPI(UserOid);
+	}
 	
 
 }

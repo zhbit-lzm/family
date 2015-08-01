@@ -39,6 +39,13 @@
 <result name="success">/userCenter.jsp</result>
 </action>
 
+<!-- 上传个人头像 -->
+<action name="uploadUserLogo" class="PersonalInformationAction" method="uploadLogo">
+<result name="success">/userCenter.jsp</result>
+<result name="input">/userLogo.jsp</result>
+<result name="error">/login.jsp</result>
+</action>
+
 </package>
 
 </struts>    
