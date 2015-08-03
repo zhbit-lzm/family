@@ -12,8 +12,6 @@ public class SendEmail {
 	private String userEmail;//用户邮箱
 	private String verificationCode;//验证码
 	
-	
-
  
     public String getUserEmail() {
 		return userEmail;
@@ -71,9 +69,9 @@ public class SendEmail {
          //指明邮件的收件人，现在发件人和收件人是一样的，那就是自己给自己发
          message.setRecipient(Message.RecipientType.TO, new InternetAddress(userEmail));
          //邮件的标题
-         message.setSubject("更改密码验证");
+         message.setSubject("梁氏家族验证码");
          //邮件的文本内容
-         message.setContent("你好,以下验证码是用来验证您是否可以更改密码 /n验证码："+verificationCode, "text/html;charset=UTF-8");
+         message.setContent("你好,以下验证码是用来验证您是否可以更改密码验证码："+verificationCode+"   30分钟内有效", "text/html;charset=UTF-8");
          //返回创建好的邮件对象
          return message;
      }

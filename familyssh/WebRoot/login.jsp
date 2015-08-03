@@ -14,7 +14,7 @@
   <br/>
   <br/>
   <br/>
-  <s:fielderror name="error"></s:fielderror>
+  <s:fielderror></s:fielderror>
   <s:form action="login" namespace="/" method="post">
   <label>帐号：</label>
   <input type="text" name="user.userAccount" class="form-control" placeholder="请输入帐号" required="required"><br/>

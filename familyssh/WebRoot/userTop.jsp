@@ -16,8 +16,9 @@
    %>
   <ul class="nav nav-pills">
   <li role="presentation" ><a href="index.jsp">首页</a></li>
-  <li role="presentation" ><a href="register.jsp">注册</a></li>
   <li role="presentation" ><a href="login.jsp">登录</a></li>
+  <li role="presentation" ><a href="register.jsp">注册</a></li>
+  <li role="presentation" ><a href="sendCode.jsp">找回密码</a></li>
   </ul>
   <%}
   else

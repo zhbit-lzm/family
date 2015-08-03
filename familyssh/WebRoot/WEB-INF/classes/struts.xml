@@ -46,6 +46,28 @@
 <result name="error">/login.jsp</result>
 </action>
 
+<!-- codeEmailCheck 用户邮件和验证码验证 -->
+<action name="checkCodeEmail" class="PasswordRecoveryAction" method="codeEmailCheck">
+<result name="success">/findBackPassword.jsp</result>
+<result name="input">/sendCode.jsp</result>
+</action>
+
+<!-- findBackPassword 找回密码 重新设置密码 -->
+<action name="findBackPassword" class="PasswordRecoveryAction" method="findBackPassword">
+<result name="success">/login.jsp</result>
+<result name="input">/sendCode.jsp</result>
+<result name="error">/findBackPassword.jsp</result>
+</action>
+
+</package>
+
+<!-- 异步请求配置 -->
+<package name="myajax" namespace="/" extends="json-default,struts-default">
+	<action name="sendCode" class="PasswordRecoveryAction" method="sendCode">
+	<result type="json">
+	<param name="root">result</param>
+	</result>
+	</action>
 </package>
 
 </struts>    
