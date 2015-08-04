@@ -34,9 +34,12 @@
   
   <li role="presentation" ><a href="index.jsp">首页</a></li>
   <li role="presentation" ><a href="userCenter.jsp">个人中心</a></li>
-  <li role="presentation" ><a href="logout">退出</a></li>
- 
   
+ 
+	 <s:if test="#session.user.userType.typeValue==2">
+	 <li role="presentation"><a href="admin.jsp">管理中心</a></li>
+	 </s:if>
+  <li role="presentation" ><a href="logout">退出</a></li>
   </ul>
 
   <% 

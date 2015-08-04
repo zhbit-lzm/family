@@ -1,5 +1,7 @@
 package com.service.imp;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.transaction.annotation.Transactional;
@@ -58,10 +60,28 @@ public class UserServiceImp implements UserService {
 		return userDao.addUserRelationship(UR);
 	}
 
-	@Override
+	
 	public PersonalInformation getUserPI(int UserOid) {
 		
 		return userDao.getUserPI(UserOid);
+	}
+
+
+	public List getUsers() {
+	
+		return userDao.getUsers();
+	}
+
+
+	public void refuseUser(int userOid) {
+	
+		userDao.refuseUser(userOid);
+	}
+
+	
+	public void acceptUser(int userOid) {
+		userDao.acceptUser(userOid);
+		
 	}
 	
 

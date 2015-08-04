@@ -59,6 +59,23 @@
 <result name="error">/findBackPassword.jsp</result>
 </action>
 
+<!-- getUsers 获取用户列表 -->
+<action name="getUsers" class="UserAction" method="getUsers">
+<result name="success">/userAuthorization.jsp</result>
+<result name="input">/login.jsp</result>
+<result name="error">/userCenter.jsp</result>
+</action>
+
+<!-- 用户授权 -->
+<action name="acceptUser" class="UserAction" method="acceptUser">
+<result name="success" type="redirectAction">getUsers</result>
+</action>
+<!-- 用户权限收回 -->
+<action name="refuseUser" class="UserAction" method="refuseUser">
+<result name="success" type="redirectAction">getUsers</result>
+</action>
+
+
 </package>
 
 <!-- 异步请求配置 -->

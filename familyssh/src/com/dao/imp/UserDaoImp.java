@@ -1,5 +1,7 @@
 package com.dao.imp;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.hibernate.SessionFactory;
@@ -86,6 +88,27 @@ public class UserDaoImp implements UserDao {
 		//根据用户编号返回用户个人信息
 		return (PersonalInformation) sessionFactory.getCurrentSession().createQuery("from PersonalInformation where userInfo.oid=?")
 						.setInteger(0, UserOid).uniqueResult();
+	}
+
+	
+	public List getUsers() {
+		
+		return sessionFactory.getCurrentSession().createQuery("from UserInfo").list();
+	}
+
+
+	public void refuseUser(int userOid) {
+		
+		UserInfo user=(UserInfo) sessionFactory.getCurrentSession().load(UserInfo.class, userOid);
+		user.setUsable(false);
+	}
+
+
+	public void acceptUser(int userOid) {
+
+		UserInfo user=(UserInfo) sessionFactory.getCurrentSession().load(UserInfo.class, userOid);
+		user.setUsable(true);
+		
 	}
 	
 

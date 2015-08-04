@@ -1,5 +1,8 @@
 package com.action;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
@@ -21,6 +24,7 @@ public class UserAction extends ActionSupport {
 	@Resource(name="userService")
 	private UserService userService;
 	private MD5Util md5=new MD5Util();
+	private List userList=new ArrayList();
 	
 	
 
@@ -38,6 +42,15 @@ public class UserAction extends ActionSupport {
 
 	public void setUserService(UserService userService) {
 		this.userService = userService;
+	}
+	
+	
+	public void setUserList(List userList) {
+		this.userList = userList;
+	}
+	
+	public List getUserList() {
+		return userList;
 	}
 
 	//用户登录
@@ -173,8 +186,62 @@ public class UserAction extends ActionSupport {
 		{
 			addFieldError("error","必须先登录");
 		}
+	}
+	
+	public String getUsers()
+	{
+		HttpSession session= ServletActionContext.getRequest().getSession();
+		UserInfo user=(UserInfo) session.getAttribute("user");
+		if(user.getUserType().getTypeValue()!=2)
+		{
+			addFieldError("error","非法操作");
+			return "error";
+		}
 		
+		userList =userService.getUsers();
 		
+		return "success";
+	}
+
+	
+	public void validateGetUsers() {
+		HttpSession session= ServletActionContext.getRequest().getSession();
+		if(session.getAttribute("user")==null)
+		{
+			addFieldError("error", "请登录");
+		}
+	}
+	
+	//用户授权
+	public String acceptUser()
+	{
+		HttpSession session= ServletActionContext.getRequest().getSession();
+		UserInfo nowuser=(UserInfo) session.getAttribute("user");
+		
+		if(nowuser.getOid()==user.getOid())
+		{
+			addFieldError("error", "自己不能修改自己");
+			return "success";
+		}
+		
+		userService.acceptUser(user.getOid());
+		
+		return "success";
+	}
+	//
+	public String refuseUser()
+	{
+		HttpSession session= ServletActionContext.getRequest().getSession();
+		UserInfo nowuser=(UserInfo) session.getAttribute("user");
+		
+		if(nowuser.getOid()==user.getOid())
+		{
+			addFieldError("error", "自己不能修改自己");
+			return "success";
+		}
+		userService.refuseUser(user.getOid());
+		
+		return "success";
 	}
 	
 	
