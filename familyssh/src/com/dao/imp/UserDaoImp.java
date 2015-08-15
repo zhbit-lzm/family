@@ -31,7 +31,7 @@ public class UserDaoImp implements UserDao {
 
 
 	public boolean checkUser(UserInfo user) {
-		System.out.println("check");
+		//System.out.println("check");
 		
 	 UserInfo users=(UserInfo) sessionFactory.getCurrentSession().createQuery("from UserInfo where userAccount=? and userPassword=?").setString(0,user.getUserAccount()).setString(1,user.getUserPassword()).uniqueResult();
 	if(users==null)

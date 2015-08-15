@@ -70,10 +70,19 @@
 <action name="acceptUser" class="UserAction" method="acceptUser">
 <result name="success" type="redirectAction">getUsers</result>
 </action>
+
 <!-- 用户权限收回 -->
 <action name="refuseUser" class="UserAction" method="refuseUser">
 <result name="success" type="redirectAction">getUsers</result>
 </action>
+
+<!-- 获取所有用户的 关系   父母配偶 的部分信息  -->
+<action name="getAllRelationship" class="UserRelationshipAction" method="getAllRelationship">
+<result name="input">/userCenter.jsp</result>
+<result name="success">/setRelationship.jsp</result>
+</action>
+
+
 
 
 </package>

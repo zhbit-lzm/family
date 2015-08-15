@@ -69,4 +69,9 @@
 	<bean id="passwordRecoveryService" class="com.service.imp.PasswordRecoveryServiceImp"></bean>	
 	<bean id="passwordRecoveryDao" class="com.dao.imp.PasswordRecoveryDaoImp"></bean>
 	
+	<!-- UserRelationship表 -->
+	<bean id="UserRelationshipAction" class="com.action.UserRelationshipAction" scope="prototype"></bean>
+	<bean id="userRelationshipService" class="com.service.imp.UserRelationshipServiceImp"></bean>
+	<bean id="userRelationshipDao" class="com.dao.imp.UserRelationshipDaoImp"></bean>
+	
 	</beans>
